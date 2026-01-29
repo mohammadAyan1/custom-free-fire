@@ -22,10 +22,13 @@ export const transporter = nodemailer.createTransport({
     }
 });
 
-app.use(cors({ origin: ["http://localhost:5173", "https://timely-melba-be0ae6.netlify.app/"] }));
+app.use(cors({ origin: ["http://localhost:5173", "https://timely-melba-be0ae6.netlify.app"] }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+    res.send("Server is running");
+});
 
 (async () => {
     try {
